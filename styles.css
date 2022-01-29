@@ -12,7 +12,7 @@ body{
     width: 100vw;
     height: auto;
     font-size: 1.6rem;
-    background: url(https://www.mor.bo/wp-content/uploads/2020/11/highrise2.jpeg) center top;
+    background: url(https://www.wallpapertip.com/wmimgs/28-286324_sad-anime-wallpaper-gif.jpg) center top;
     background-size:auto;
     background-attachment: fixed;
 }
@@ -57,9 +57,9 @@ input{
 }
 
     #playList::before{
-        background-image: linear-gradient(to right, #b94747 0%, rgba(0, 0, 0, 0) 100%);
+        background-image: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0) 100%);
         height: 100%;
-        width: 10%;
+        width: 15%;
         content: '';
         z-index: 2;
         position: absolute;
@@ -68,9 +68,10 @@ input{
         }
 
         #playList::after{
-            background-image: linear-gradient(to right, #b94747 0%, rgba(0, 0, 0, 0) 100%);
+            background-image: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0) 100%);
+            height: 100%; 
             height: 100%;
-            width: 10%;
+            width: 15%;
             content: '';
             z-index: 2;
             position: absolute;
