@@ -39,7 +39,7 @@ input{
     text-align: center;
     background-color: #ffffff00;
     color: white;
-    font-size: 2rem; 
+    font-size: 1.8rem; 
 }
 
     input::placeholder{
@@ -139,3 +139,4 @@ img{
 .img-search{
     margin: 20px;
 }
+
