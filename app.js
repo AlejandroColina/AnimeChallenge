@@ -36,8 +36,8 @@ var search3 = "";                                                       //Guarda
 
 window.addEventListener('keydown', (event) => {                         //Instancio la búsqueda de usuario
     if(event.keyCode === 13){                                           //Validamos que opriman enter
-       const consultaUsuario = document.getElementById('search').value.toLowerCase(); // Guardo el value ingresado por el usuario
-       search3 = consultaUsuario;
+       const consultaUsuario = document.getElementById('search').value.toLowerCase(); 
+       search3 = consultaUsuario;                                       // Guardo el value ingresado por el usuario
        
        busqueda(consultaUsuario);                                       //Instancio function que realiza la busqueda y le paso como argumento el value del usuario
         
