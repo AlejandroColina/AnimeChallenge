@@ -17,8 +17,6 @@ body{
     background-attachment: fixed;
 }
 
-
-
 .div_container{    
     margin: 70px auto 20px;
     width: 45vw;
@@ -53,7 +51,8 @@ h1{
     display: flex;
     justify-content: center;
     margin: 25px 0 15px 0;    
-    font-size: 4.5rem;   
+    font-size: 4.5rem;
+    text-align: center;   
 }    
 
 #playList{    
@@ -93,9 +92,7 @@ h1{
         right: 0;
         bottom: 0;
         }
-
-/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
-
+ 
 .div-playList{
    margin: 2%;
    animation: flujo 80s alternate running infinite;
@@ -108,8 +105,8 @@ h1{
 }    
 
 .div-playList img{
-    width: 25rem;
-    height: 35rem;
+    width: 23rem;
+    height: 33rem;
     border-radius: 10px;
     
 }
@@ -127,8 +124,6 @@ h1{
     to {
         transform: translateX(calc(-225px*20));
     }}
-
-/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/            
 
 p{
     position: relative;

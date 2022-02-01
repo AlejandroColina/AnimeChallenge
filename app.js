@@ -114,7 +114,7 @@ function cards (e){
 
     document.querySelectorAll('p')[0].innerHTML = 
     `Requesting: <a href="${url}${search1}${search3}${search2}}"> ${url}${search1}${search3}</a>`;
-    document.querySelector('h2').innerHTML= 'RESULT';
+    document.querySelector('h2').innerHTML= 'RESULTS';
     document.querySelectorAll('p')[1].innerHTML = `Request Cached: ${request_cached}`;         
     
     //toHTML.append( fragment);
