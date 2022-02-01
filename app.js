@@ -65,20 +65,21 @@ async function busqueda (userSearch){
 //----------------------------------------Inyección del Resultado de la búsqueda-------------------------- 
 
 const toHTML = document.getElementById('root');
-const fragment = new DocumentFragment();
 
 function cards (e){
-
+    
     document.getElementById('playList').remove();                       //Quitamos la playList de recomendados para darle lugar al resultado de la búsqueda.
     document.querySelector('h1').remove();
 
-    e.slice(0, 10).forEach(element => {                                 // Aquí se filtra la cantidad de tarjetas
+   e.slice(0, 10).forEach(element => {                                 // Aquí se filtra la cantidad de tarjetas
         const divContenedor = document.createElement('div');//ppal
         divContenedor.className = "div-ppal-search";//ppal
         
         const divImg = document.createElement('div');//div-hijo-img
         divImg.className = 'div-img-search';//div-hijo-img
         
+        let description = document.createElement('figcaption');
+
         const divH4 = document.createElement('div');
         divH4.className = 'div-score-search';
 
@@ -97,28 +98,26 @@ function cards (e){
         img.src = element.image_url;
         img.className = "img-search";                                   //Se asigna clase para darle margen en los estilos
         
+        description.textContent = element.synopsis;
         link.href = element.url;
 
         link.appendChild(img);
 
-        divImg.appendChild(link);//divImg
+        divImg.append(link, description);//divImg
         divH4.appendChild(score);
 
         divContenedor.append(divImg, divH4);
-        //divContenedor.appendChild(divH4);
+      
         toHTML.append(divContenedor);
-
-        //fragment.append(divContenedor);
-    
+            
     });
-
+   
     document.querySelectorAll('p')[0].innerHTML = 
     `Requesting: <a href="${url}${search1}${search3}${search2}}"> ${url}${search1}${search3}</a>`;
     document.querySelector('h2').innerHTML= 'RESULTS';
     document.querySelectorAll('p')[1].innerHTML = `Request Cached: ${request_cached}`;         
     
-    //toHTML.append( fragment);
-    
 }
 //---------------------------------------------------------------------------------
+
 
