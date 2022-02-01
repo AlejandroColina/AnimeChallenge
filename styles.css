@@ -202,8 +202,7 @@ figcaption{
     font-weight: bold;    
 }
 
-.div-ppal-search:hover figcaption{
-    
+.div-ppal-search:hover figcaption{    
     display: flex;
     align-items: center;
 }

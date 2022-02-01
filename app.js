@@ -56,20 +56,30 @@ async function busqueda (userSearch){
     request_cached = dataJson.request_cached;                             //Variable declarada al principio, se utiliza para imprimir TRUE OR FALSE bajo el input
 
     if(request_cached){
+        if(!reSearch()){
+            removePlayList();            
+        }else{
+            toHTML.innerHTML= "";                                        //Borro el resultado de la busqueda para inyectar el nuevo resultado.      
+        }
         cards(dataJson.results);
     } else{
         alert('¡Anime NOT FOUND!');        
           }
+//mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+    
+}
+//----------------------------------------Remover PlayList-----------------------------------------------
+
+function removePlayList(){
+    document.getElementById('playList').remove();                       //Quitamos la playList de recomendados para darle lugar al resultado de la búsqueda.
+    document.querySelector('h1').remove();
 }
 
 //----------------------------------------Inyección del Resultado de la búsqueda-------------------------- 
 
 const toHTML = document.getElementById('root');
 
-function cards (e){
-    
-    document.getElementById('playList').remove();                       //Quitamos la playList de recomendados para darle lugar al resultado de la búsqueda.
-    document.querySelector('h1').remove();
+function cards (e){    
 
    e.slice(0, 10).forEach(element => {                                 // Aquí se filtra la cantidad de tarjetas
         const divContenedor = document.createElement('div');//ppal
@@ -120,4 +130,23 @@ function cards (e){
 }
 //---------------------------------------------------------------------------------
 
+function reSearch(){
 
+    var x = document.getElementsByClassName('div-ppal-search');
+
+    if(x.length > 0){
+    return true
+    }else{
+        return false
+    }
+}
+/*
+function nose2 (x){
+
+    if(x === true){
+        console.log('si sirve')
+    }else{
+        console.log('no sirve')
+    }
+}
+*/
