@@ -9,18 +9,20 @@ html{
 }
 
 body{
-    width: 100vw;
-    height: auto;
+    width: 100%;
+    height: 100%;
     font-size: 1.6rem;
     background: url(https://www.wallpapertip.com/wmimgs/28-286324_sad-anime-wallpaper-gif.jpg) center top;
-    background-size:auto;
+    background-size: cover;
     background-attachment: fixed;
 }
 
-.div_container{
-    
-    margin: 100px auto 20px;
+
+
+.div_container{    
+    margin: 70px auto 20px;
     width: 45vw;
+    min-width: 250px;
     height: 6vh;
     background-color: #ffffff2c;
     border-radius: 50px;
@@ -47,13 +49,23 @@ input{
         font-weight: bold;
     }
 
-#playList{
+h1{
+    display: flex;
+    justify-content: center;
+    margin: 25px 0 15px 0;    
+    font-size: 4.5rem;   
+}    
+
+#playList{    
     width: 100vw;
-    height: 55vh;
-    margin: 4% auto;
+    height: 60vh;
+    margin: 0.5% auto 0;
+    padding: 3% ;
     display:flex;    
     align-items: center;
     overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
     #playList::before{
@@ -65,53 +77,58 @@ input{
         position: absolute;
         top: 0;
         left: 0;
+        bottom: 0;
         }
 
-        #playList::after{
-            background-image: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0) 100%);
-            height: 100%; 
-            height: 100%;
-            width: 15%;
-            content: '';
-            z-index: 2;
-            position: absolute;
-            transform: rotateZ(180deg);
-            top: 0;
-            right: 0;
-            }               
+    #playList::after{
+        background-image: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0) 100%);
+        height: 100%; 
+        height: 100%;
+        width: 15%;
+        content: '';
+        z-index: 2;
+        position: absolute;
+        transform: rotateZ(180deg);
+        top: 0;
+        right: 0;
+        bottom: 0;
+        }
 
-    #playList div {
-        width: 225px;
-        height: 318px;
-        margin: 2%;
-        border-radius: 20px;
-        position:relative;
-        animation: flujo 80s normal infinite;
+/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+
+.div-playList{
+   margin: 2%;
+   animation: flujo 80s alternate running infinite;
         /*
         animation-name: flujo;
         animation-duration: 90s;
-        animation-direction:normal;
+        animation-direction: normal;
         animation-iteration-count: infinite;
         */
+}    
+
+.div-playList img{
+    width: 25rem;
+    height: 35rem;
+    border-radius: 10px;
+    
+}
+
+.div-playList img:hover{
+    width: 27rem;
+    height: 37rem;
+    box-shadow: 0 0 10px black;
+}
+
+@keyframes flujo{
+    from {
+        transform: translateX(0);
     }
+    to {
+        transform: translateX(calc(-225px*20));
+    }}
 
-    #playList:hover{animation-play-state: paused;}
-       
-    #playList img:hover{
-            box-shadow: 0 0 20px black;
-            width: 250px;
-            height: 330px;
-            margin-top: 5%;
-            
-        }
-
-    @keyframes flujo{
-        0% {
-            transform: translateX(0);
-        }
-        100%{
-            transform: translateX(calc(-225px*20));
-        }}
+/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/            
 
 p{
     position: relative;
@@ -120,6 +137,13 @@ p{
     left: 10%;
     font-size: 1.2rem;
 }
+
+h2{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;    
+    font-size: 4.5rem;   
+}    
 
 #root{
     width: 90%;
@@ -130,13 +154,37 @@ p{
     position: relative;   
 }
 
-img{
+.div-ppal-search{background: rgba(0, 0, 0, 0.363);
+    padding: 10px;
     width: 225px;
-    height: 318px;
-    border-radius: 20px;
-}
-
-.img-search{
+    height: 360px;  
     margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black inset;
 }
 
+    .div-img-search{        
+        height: 85%;
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 0 10px black;
+    }
+
+        .div-score-search{
+            height: 15%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 1.8rem;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+
+            .div-img-search img{
+                height: 100%;   
+                width:100%;
+                border-radius: 10px 10px 0 0;
+            }

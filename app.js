@@ -12,9 +12,11 @@ async function moreViews () {
     info.forEach(element => {
 
         const divContenedor = document.createElement('div');
-        const img = document.createElement('img');  
+        divContenedor.className = 'div-playList';
+        
+        const img = document.createElement('img');          
         const link = document.createElement('a');
-
+        
         img.src = element.image_url;
         link.href = element.url;
 
@@ -68,12 +70,29 @@ const fragment = new DocumentFragment();
 function cards (e){
 
     document.getElementById('playList').remove();                       //Quitamos la playList de recomendados para darle lugar al resultado de la búsqueda.
-        
+    document.querySelector('h1').remove();
+
     e.slice(0, 10).forEach(element => {                                 // Aquí se filtra la cantidad de tarjetas
-        const divContenedor = document.createElement('div');
-        divContenedor.className = "div-img";
+        const divContenedor = document.createElement('div');//ppal
+        divContenedor.className = "div-ppal-search";//ppal
+        
+        const divImg = document.createElement('div');//div-hijo-img
+        divImg.className = 'div-img-search';//div-hijo-img
+        
+        const divH4 = document.createElement('div');
+        divH4.className = 'div-score-search';
+
         const img = document.createElement('img');  
         const link = document.createElement('a');
+        const score = document.createElement('h4');
+
+            if(element.score >=1 && element.score <5){
+                score.innerHTML = 'I do not recommend it.'
+            }else if(element.score >=5 && element.score<8){
+                score.innerHTML = 'You may have fun.'
+            }else{
+                score.innerHTML = 'Great, this is one of the best anime.'
+            }
         
         img.src = element.image_url;
         img.className = "img-search";                                   //Se asigna clase para darle margen en los estilos
@@ -81,17 +100,25 @@ function cards (e){
         link.href = element.url;
 
         link.appendChild(img);
-        divContenedor.appendChild(link);
-        fragment.appendChild(divContenedor);
-        
-        document.querySelectorAll('p')[0].innerHTML = 
-        `Requesting: <a href="${url}${search1}${search3}${search2}}"> ${url}${search1}${search3}</a>`;
 
-        document.querySelectorAll('p')[1].innerHTML = `Request Cached: ${request_cached}`;        
+        divImg.appendChild(link);//divImg
+        divH4.appendChild(score);
 
+        divContenedor.append(divImg, divH4);
+        //divContenedor.appendChild(divH4);
+        toHTML.append(divContenedor);
+
+        //fragment.append(divContenedor);
+    
     });
 
-   toHTML.appendChild(fragment)
+    document.querySelectorAll('p')[0].innerHTML = 
+    `Requesting: <a href="${url}${search1}${search3}${search2}}"> ${url}${search1}${search3}</a>`;
+    document.querySelector('h2').innerHTML= 'RESULT';
+    document.querySelectorAll('p')[1].innerHTML = `Request Cached: ${request_cached}`;         
+    
+    //toHTML.append( fragment);
     
 }
 //---------------------------------------------------------------------------------
+
