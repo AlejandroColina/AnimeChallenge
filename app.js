@@ -75,8 +75,7 @@ async function busqueda (userSearch){
     } else{
         alert('¡Anime NOT FOUND!');        
           }
-//mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-    
+   
 }
 //----------------------------------------Remover PlayList-----------------------------------------------
 
@@ -156,9 +155,10 @@ function reSearch(){
 ////----------------------------------------Return to initial page-----------------------------------------
 
 function back(){
-    document.querySelectorAll('p')[1].remove();
-    document.querySelectorAll('p')[0].remove();
-    document.querySelector('h2').remove();
+    document.querySelectorAll('p')[2].innerHTML = "";
+    document.querySelectorAll('p')[1].innerHTML = "";
+    document.querySelectorAll('p')[0].innerHTML = "";
+    document.querySelector('h2').innerHTML ="";
     toHTML.innerHTML = '';
     moreViews()
 }
