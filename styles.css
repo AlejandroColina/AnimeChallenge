@@ -55,7 +55,7 @@ h1{
     text-align: center;   
 }    
 
-#playList{    
+.playList{    
     width: 100vw;
     height: 60vh;
     margin: 0.5% auto 0;
@@ -67,7 +67,7 @@ h1{
     justify-content: center;
 }
 
-    #playList::before{
+    .playList::before{
         background-image: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0) 100%);
         height: 100%;
         width: 15%;
@@ -79,7 +79,7 @@ h1{
         bottom: 0;
         }
 
-    #playList::after{
+    .playList::after{
         background-image: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0) 100%);
         height: 100%; 
         height: 100%;

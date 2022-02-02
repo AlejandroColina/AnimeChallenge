@@ -2,30 +2,40 @@ const url = 'https://api.jikan.moe/v3';
 
 //------------------------------------API RECOMMENDATIONS-------------------------------------------------
 
-const toPlayList = document.getElementById('playList');
+//const toPlayList = document.getElementById('playList');
+const newPlay = document.getElementById('prueba');
 async function moreViews () {
+
+    const fragment = new DocumentFragment();
 
     const link = await fetch(url + "/anime/1/recommendations");
     const data = await link.json();
     const info = data.recommendations;
+
+    var playList = document.createElement('div');
+        playList.className = 'playList';
     
     info.forEach(element => {
 
         const divContenedor = document.createElement('div');
-        divContenedor.className = 'div-playList';
-        
-        const img = document.createElement('img');          
-        const link = document.createElement('a');
-        
+        divContenedor.className = 'div-playList';        
+
+        const img = document.createElement('img'); 
         img.src = element.image_url;
-        link.href = element.url;
 
-        link.appendChild(img);
-        divContenedor.appendChild(link);
+        const a = document.createElement('a');
+        a.href = element.url;       
 
-        toPlayList.append(divContenedor);
+        a.appendChild(img);
+        divContenedor.appendChild(a);
 
+        fragment.appendChild(divContenedor);
     });
+
+    document.querySelector('h1').textContent = 'The most recommended';
+
+    playList.appendChild(fragment);
+    newPlay.appendChild(playList);
 }
 
 moreViews();
@@ -71,8 +81,8 @@ async function busqueda (userSearch){
 //----------------------------------------Remover PlayList-----------------------------------------------
 
 function removePlayList(){
-    document.getElementById('playList').remove();                       //Quitamos la playList de recomendados para darle lugar al resultado de la búsqueda.
-    document.querySelector('h1').remove();
+   newPlay.innerHTML = '';
+   document.querySelector('h1').innerHTML = '';
 }
 
 //----------------------------------------Inyección del Resultado de la búsqueda-------------------------- 
@@ -80,7 +90,7 @@ function removePlayList(){
 const toHTML = document.getElementById('root');
 
 function cards (e){    
-
+    
    e.slice(0, 10).forEach(element => {                                 // Aquí se filtra la cantidad de tarjetas
         const divContenedor = document.createElement('div');//ppal
         divContenedor.className = "div-ppal-search";//ppal
@@ -121,14 +131,16 @@ function cards (e){
         toHTML.append(divContenedor);
             
     });
-   
+
     document.querySelectorAll('p')[0].innerHTML = 
-    `Requesting: <a href="${url}${search1}${search3}${search2}}"> ${url}${search1}${search3}</a>`;
+    `Requesting: <a href="${url}${search1}${search3}${search2}"> ${url}${search1}${search3}</a>`;
     document.querySelector('h2').innerHTML= 'RESULTS';
     document.querySelectorAll('p')[1].innerHTML = `Request Cached: ${request_cached}`;         
     
+    document.querySelectorAll('p')[2].innerHTML = `<a class = "a-back" href ="#">INICIO</a>`
+    
 }
-//---------------------------------------------------------------------------------
+////----------------------------------------Iniciar una nueva búsqueda-------------------------------------
 
 function reSearch(){
 
@@ -140,13 +152,18 @@ function reSearch(){
         return false
     }
 }
-/*
-function nose2 (x){
 
-    if(x === true){
-        console.log('si sirve')
-    }else{
-        console.log('no sirve')
-    }
+////----------------------------------------Return to initial page-----------------------------------------
+
+function back(){
+    document.querySelectorAll('p')[1].remove();
+    document.querySelectorAll('p')[0].remove();
+    document.querySelector('h2').remove();
+    toHTML.innerHTML = '';
+    moreViews()
 }
-*/
+
+const retorno = document.getElementById('action');
+retorno.addEventListener('click', () => {
+    back() 
+});
