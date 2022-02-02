@@ -55,6 +55,7 @@ h1{
     margin: 25px 0 15px 0;    
     font-size: 4.5rem;
     text-align: center;   
+    color: white;
 }    
 
 .playList{    
@@ -139,6 +140,7 @@ h2{
     justify-content: center;
     margin: 30px 0;    
     font-size: 4.5rem;   
+    color: white;
 }    
 
 #root{
