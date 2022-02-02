@@ -6,15 +6,17 @@
 
 html{
     font-size: 62.5%;
+    overflow-x: hidden;
 }
 
 body{
     width: 100%;
     height: 100%;
     font-size: 1.6rem;
-    background: url(https://www.wallpapertip.com/wmimgs/28-286324_sad-anime-wallpaper-gif.jpg) center top;
-    background-size: cover;
-    background-attachment: fixed;
+    /*background: url(https://www.wallpapertip.com/wmimgs/28-286324_sad-anime-wallpaper-gif.jpg) center top;
+    background-size:cover;
+    background-attachment: fixed;*/
+    background: linear-gradient(to right, black 0%, black 25%, grey 50%, black 75%, black 100%);
 }
 
 .div_container{    
@@ -69,7 +71,7 @@ h1{
 
     .playList::before{
         background-image: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0) 100%);
-        height: 100%;
+        height: auto;
         width: 15%;
         content: '';
         z-index: 2;
@@ -81,8 +83,7 @@ h1{
 
     .playList::after{
         background-image: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0) 100%);
-        height: 100%; 
-        height: 100%;
+        height: auto; 
         width: 15%;
         content: '';
         z-index: 2;
@@ -105,15 +106,15 @@ h1{
 }    
 
 .div-playList img{
-    width: 23rem;
-    height: 33rem;
+    width: 21rem;
+    height: 31rem;
     border-radius: 10px;
     
 }
 
 .div-playList img:hover{
-    width: 27rem;
-    height: 37rem;
+    width: 25rem;
+    height: 35rem;
     box-shadow: 0 0 10px black;
 }
 
@@ -149,7 +150,7 @@ h2{
     position: relative;   
 }
 
-.div-ppal-search{background: rgba(0, 0, 0, 0.363);
+.div-ppal-search{background: rgba(109, 109, 109, 0.438);
     position: relative;
     padding: 10px;
     width: 225px;
